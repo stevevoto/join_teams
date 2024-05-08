@@ -33,5 +33,6 @@ Before running the script, ensure the following:
 git clone https://github.com/stevevoto/join_teams
 cd join_teams/
 chmod +x pre-install 
-chmod +x install_join_teams 
-./pre-install 
+chmod +x join_teams 
+./pre-install
+
