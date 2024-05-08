@@ -30,9 +30,14 @@ Before running the script, ensure the following:
 3. **Install Required Tools**: Make sure that `xdg-open` and `xdotool` are installed on the system. You can install them using package managers like `apt` for Ubuntu or `yum` for CentOS.
 
 ```bash
+Start from user directory home 
 git clone https://github.com/stevevoto/join_teams
 cd join_teams/
 chmod +x pre-install 
 chmod +x join_teams 
 ./pre-install
+vi join_teams and modify home directory "Function to reopen script"
+vi join_teams and modify meeting "DEFAULT_URL"
+then run join_teams
+
 
