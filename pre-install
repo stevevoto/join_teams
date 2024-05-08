@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# This script installs the necessary dependencies for running the Join Teams script on Linux-based systems.
+# It detects the operating system (Ubuntu or CentOS/RHEL) and installs the required packages accordingly.
+
+# Function to install dependencies for Ubuntu
+install_ubuntu_dependencies() {
+    echo "Installing dependencies for Ubuntu..."
+    sudo mkdir -p /etc/apt/keyrings
+    sudo wget -qO /etc/apt/keyrings/teams-for-linux.asc https://repo.teamsforlinux.de/teams-for-linux.asc
+    echo "deb [signed-by=/etc/apt/keyrings/teams-for-linux.asc arch=$(dpkg --print-architecture)] https://repo.teamsforlinux.de/debian/ stable main" | sudo tee /etc/apt/sources.list.d/teams-for-linux-packages.list
+    sudo apt update
+    sudo apt install -y teams-for-linux xdotool
+}
+
+# Function to install dependencies for CentOS/RHEL
+install_centos_dependencies() {
+    echo "Installing dependencies for CentOS/RHEL..."
+    sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+    sudo yum localinstall -y google-chrome-stable_current_x86_64.rpm
+    sudo yum upgrade -y google-chrome-stable
+    curl -1sLf -o /tmp/teams-for-linux.asc https://repo.teamsforlinux.de/teams-for-linux.asc; rpm --import /tmp/teams-for-linux.asc; rm -f /tmp/teams-for-linux.asc
+    curl -1sLf -o /etc/yum.repos.d/teams-for-linux.repo https://repo.teamsforlinux.de/rpm/teams-for-linux.repo
+    yum update -y
+    yum install -y teams-for-linux xdotool
+}
+
+# Check the distribution
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    if [ "$ID" == "ubuntu" ] || [ "$ID_LIKE" == "debian" ]; then
+        install_ubuntu_dependencies
+    elif [ "$ID" == "centos" ] || [ "$ID" == "rhel" ]; then
+        install_centos_dependencies
+    else
+        echo "Unsupported distribution: $ID"
+        exit 1
+    fi
+else
+    echo "Unsupported distribution: unable to detect OS information."
+    exit 1
+fi
