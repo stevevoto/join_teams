@@ -28,3 +28,10 @@ Before running the script, ensure the following:
 1. **Operating System**: Confirm that the system is running either Ubuntu or CentOS.
 2. **Screen Lock and Screensaver**: Disable screen lock and screensaver functionalities to prevent interruptions during script execution. This can typically be done through system settings or configuration options in the desktop environment.
 3. **Install Required Tools**: Make sure that `xdg-open` and `xdotool` are installed on the system. You can install them using package managers like `apt` for Ubuntu or `yum` for CentOS.
+
+```bash
+git clone https://github.com/stevevoto/join_teams
+cd join_teams/
+chmod +x pre-install 
+chmod +x install_join_teams 
+./pre-install 
