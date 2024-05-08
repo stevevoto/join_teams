@@ -1,5 +1,4 @@
 Join Teams Script
-
 Overview
 The Join Teams Script automates the process of joining Microsoft Teams meetings on Linux-based systems. It opens the meeting link in a web browser, maximizes the browser window, clicks the "Join now" button, and closes the browser after a specified duration. Additionally, it includes features for logging script activities.
 
