@@ -10,8 +10,8 @@ The **Join Teams Script** automates the process of joining Microsoft Teams meeti
 
 The script is designed to run on Linux-based distributions such as:
 
-- Ubuntu
-- CentOS
+- Ubuntu with GUI
+- CentOS with GUI
 
 ### Tools
 
