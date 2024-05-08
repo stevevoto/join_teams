@@ -22,15 +22,14 @@ The following tools are required to run the script:
 3. **xdotool**: Used for simulating keyboard input, mouse activity, and window manipulation. It is utilized to maximize the browser window, simulate mouse clicks, and move the mouse cursor.
 
 ## Preliminary Steps
-
 Before running the script, ensure the following:
-
-1. **Operating System**: Confirm that the system is running either Ubuntu or CentOS.
-2. **Screen Lock and Screensaver**: Disable screen lock and screensaver functionalities to prevent interruptions during script execution. This can typically be done through system settings or configuration options in the desktop environment.
-3. **Install Required Tools**: Make sure that `xdg-open` and `xdotool` are installed on the system. You can install them using package managers like `apt` for Ubuntu or `yum` for CentOS.
+1. Create a Microsoft Email Account and login from google chrome allowing it autmatically to sign in.
+2. **Operating System**: Confirm that the system is running either Ubuntu or CentOS.
+3. **Screen Lock and Screensaver**: Disable screen lock and screensaver functionalities to prevent interruptions during script execution. This can typically be done through system settings or configuration options in the desktop environment.
+4. **Install Required Tools**: Make sure that `xdg-open` and `xdotool` are installed on the system. You can install them using package managers like `apt` for Ubuntu or `yum` for CentOS.
 
 ```bash
-Start from user directory home 
+**Start from user directory home** 
 git clone https://github.com/stevevoto/join_teams
 cd join_teams/
 chmod +x pre-install 
@@ -39,5 +38,8 @@ chmod +x join_teams
 vi join_teams and modify home directory "Function to reopen script"
 vi join_teams and modify meeting "DEFAULT_URL"
 then run join_teams
+If browser opens and you are logged in verify after 25 seconds the "Join now" button gets clicked
+If "Join now" button does not click within 25-30 seconds open another terminal position mouse over the join now button.
+Run the command "xdotool getmouselocation" and get coordinates. Then enter them into your script and try again.
 
 
